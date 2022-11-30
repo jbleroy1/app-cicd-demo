@@ -1,10 +1,10 @@
 steps:
 # Build and tag using commit sha
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'europe-west2-docker.pkg.dev/$PROJECT_ID/go-cicd-demo:${COMMIT_SHA}', '-f', 'Dockerfile']
+  args: ['build', '.', '-t', 'europe-west2-docker.pkg.dev/$PROJECT_ID/docker-registry/go-cicd-demo:${COMMIT_SHA}', '-f', 'Dockerfile']
 # Push the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west2-docker.pkg.dev/$PROJECT_ID/go-cicd-demo:${COMMIT_SHA}']
+  args: ['push', 'europe-west2-docker.pkg.dev/$PROJECT_ID/docker-registry/go-cicd-demo:${COMMIT_SHA}']
 # Create release in Google Cloud Deploy
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
@@ -14,5 +14,5 @@ steps:
       "--delivery-pipeline", "go-cicd-demo",
       "--region", "us-central1",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "go-cicd-demo=europe-west2-docker.pkg.dev/$PROJECT_ID/go-cicd-demo:${COMMIT_SHA}"
+      "--images", "go-cicd-demo=europe-west2-docker.pkg.dev/$PROJECT_ID/docker-registry/go-cicd-demo:${COMMIT_SHA}"
     ]
