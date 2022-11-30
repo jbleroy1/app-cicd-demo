@@ -12,7 +12,7 @@ steps:
     [
       "deploy", "releases", "create", "rel-${SHORT_SHA}",
       "--delivery-pipeline", "go-cicd-demo",
-      "--region", "us-central1",
+      "--region", "europe-west2",
       "--annotations", "commitId=${REVISION_ID}",
       "--images", "go-cicd-demo=europe-west2-docker.pkg.dev/$PROJECT_ID/docker-registry/go-cicd-demo:${COMMIT_SHA}"
     ]
