@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: europe-west2-docker.pkg.dev/meta-yen-311209/docker-registry/go-cicd-demo:${COMMIT_SHA}
+      - image: go-cicd-demo-image
