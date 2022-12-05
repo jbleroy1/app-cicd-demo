@@ -98,7 +98,7 @@ func newApp(ctx context.Context, port, projectID string) (*App, error) {
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
 		))
 	if err != nil {
-		return nil, fmt.Errorf("unable to initialize logging client: %v", err)
+		return nil, fmt.Errorf("unable to initialize logging client : %v", err)
 	}
 	app.log = client.Logger("test-log", logging.RedirectAsJSON(os.Stderr))
 
