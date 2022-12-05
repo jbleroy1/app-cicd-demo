@@ -27,3 +27,15 @@ metadata:
 description: Cloud Run production service
 run:
  location: projects/meta-yen-311209/locations/europe-west2
+
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: run-cr-prd-new-region
+description: Cloud Run production service in n ew region
+requireApproval: true
+run:
+ location: projects/meta-yen-311209/locations/europe-west1
+ 
