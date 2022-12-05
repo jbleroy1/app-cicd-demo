@@ -11,5 +11,9 @@ profiles:
   manifests:
     rawYaml:
     - run-prod.yaml
+- name: prod-new-region
+  manifests:
+    rawYaml:
+    - run-prod.yaml
 deploy:
   cloudrun: {}
